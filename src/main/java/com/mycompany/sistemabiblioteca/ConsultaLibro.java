@@ -103,9 +103,9 @@ public class ConsultaLibro extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,6 +129,7 @@ public class ConsultaLibro extends javax.swing.JInternalFrame {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sistemabiblioteca","root","Congreso_1187");
             Statement stmt = con.prepareStatement("select type from users where Nombre= and Codigo=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery("select * from libros where Nombre like'" + nombre.getText()+"%' and Codigo like'" +codigo.getText()+"%'");  
+            con.close();
             
             rs.first();
            
