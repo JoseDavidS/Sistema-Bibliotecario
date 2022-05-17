@@ -5,13 +5,21 @@
 package com.mycompany.sistemabiblioteca;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
+
 import java.sql.Statement;
+
 import java.util.logging.Level;
+
 import java.util.logging.Logger;
+
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -135,9 +143,12 @@ public class AdeudaLibros extends javax.swing.JInternalFrame {
         //en la conexion ponemos (url,usuario,contraseña) de la base de datos para que no genere problemas al momento de conectarlo
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sistemabiblioteca","root","Congreso_1187");
             Statement stmt = con.prepareStatement("select type from users where Nombre=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            con.close();
             ResultSet rs = stmt.executeQuery("select * from socios where Nombre like'" + NombreF.getText()+"%'");  
+            stmt.close();
             //en la linea anterior usamos el (like) para que se pueda buscar con una letra o numero y no con todo el dato
             rs.first();
+           
            
             
             do{ //aca hacemos un array(vector) por cada columna que tenemos en la jtable y que valla buscando
