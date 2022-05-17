@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package com.mycompany.sistemabiblioteca;
+package com.SIGLO21.sistemabiblioteca;
 
 import java.sql.Connection;
 
@@ -57,6 +57,10 @@ public class AdeudaLibros extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jtAdeuda = new javax.swing.JTextField();
 
+        setBorder(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setToolTipText("");
+
         jLabel1.setText("Comprobar si un Socio Adeuda Libros");
 
         jLabel2.setText("Nombre del Socio:");
@@ -109,7 +113,7 @@ public class AdeudaLibros extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jtAdeuda, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 386, Short.MAX_VALUE))
+                        .addGap(0, 398, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -129,7 +133,7 @@ public class AdeudaLibros extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtAdeuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,7 +146,9 @@ public class AdeudaLibros extends javax.swing.JInternalFrame {
             DefaultTableModel modelo =(DefaultTableModel)jTable1.getModel();
         //en la conexion ponemos (url,usuario,contraseña) de la base de datos para que no genere problemas al momento de conectarlo
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sistemabiblioteca","root","Congreso_1187");
+            
             Statement stmt = con.prepareStatement("select type from users where Nombre=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
             con.close();
             ResultSet rs = stmt.executeQuery("select * from socios where Nombre like'" + NombreF.getText()+"%'");  
             stmt.close();

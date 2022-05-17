@@ -1,4 +1,4 @@
-package com.mycompany.sistemabiblioteca;
+package com.SIGLO21.sistemabiblioteca;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class PantallaRegistro extends javax.swing.JInternalFrame {
 
@@ -23,9 +23,6 @@ public class PantallaRegistro extends javax.swing.JInternalFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PantallaRegistro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
         
     }
 
@@ -293,12 +290,12 @@ public class PantallaRegistro extends javax.swing.JInternalFrame {
             con = DriverManager.getConnection("jdbc:mysql://localhost/sistemabiblioteca","root","Congreso_1187");
             Statement stmt = con.createStatement(); //en la linea siguiente inserta cada dato del socio
             stmt.executeUpdate("INSERT INTO socios VALUES('"+tfNombre.getText()+"','"+tfApellido.getText()+"', '"+tfDocumento.getText()+"', '"+tfTelefono.getText()+"', '"+tfCantLibros.getText()+"', '"+tfDetalle.getText()+"', '"+tfID.getText()+"', '"+tfAdeuda.getText()+"')");
+            showMessageDialog(null, "El socio se ha registrado de manera exitosa");
         } catch (SQLException ex) { //si no se puede conectar a la base de datos lanza un error y muestra el mensaje
             Logger.getLogger(PantallaRegistro.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null,"No se puede conectar a la base de datos");
+            showMessageDialog(null,"No se puede conectar a la base de datos");
         }
-        //muestra el mensaje si el Socio se ha registrado exitosamente
-        JOptionPane.showMessageDialog(null, "El socio se ha registrado de manera exitosa");
+
     }//GEN-LAST:event_jButton1ActionPerformed
     //en los Text Field ingresamos los datos segun correspondan
     private void tfNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfNombreFocusGained

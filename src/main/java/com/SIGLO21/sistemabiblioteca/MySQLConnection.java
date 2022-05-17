@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.sistemabiblioteca;
-
+package com.SIGLO21.sistemabiblioteca;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.SQLException;
-import java.sql.ResultSet;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
@@ -30,7 +24,6 @@ public class MySQLConnection {
     }
     private Connection connection;
     private Statement statement;
-    private ResultSet result;
     private String database;
     private String user;
     private String key;
@@ -73,8 +66,7 @@ public class MySQLConnection {
             showMessageDialog(null, "Implementation error");
         }
     }
-    
-    //QUERY EXAMPLE users set name = 'Brisa' , surname = 'Carrasco' where document = '42855159' 
+
     
     public void update(String[] _attributes, String[] _values, String _table,String[] _ref_attribute){
         if(_values.length == _attributes.length){
