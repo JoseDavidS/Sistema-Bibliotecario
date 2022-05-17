@@ -39,7 +39,7 @@ public class MySQLConnection {
     public void create(String[] _attributes, String[] _values){
         if(_values.length == _attributes.length){
             try{
-                connection = DriverManager.getConnection(database, user, key);
+                this.connection = DriverManager.getConnection(database, user, key);
                 StringBuilder query = new StringBuilder();
                 query.append("create ");
                 query.append(database);
@@ -60,10 +60,10 @@ public class MySQLConnection {
                         query.append(", ");
                     }
                 }
-                Statement statement = connection.createStatement();
-                statement.executeQuery(query.toString());
-                statement.close();
-                connection.close();
+                this.statement = this.connection.createStatement();
+                this.statement.executeQuery(query.toString());
+                this.statement.close();
+                this.connection.close();
             }
             catch(SQLException e){
                 showMessageDialog(null, "Couldn't connect to database" + this.database);
@@ -79,7 +79,7 @@ public class MySQLConnection {
     public void update(String[] _attributes, String[] _values, String _table,String[] _ref_attribute){
         if(_values.length == _attributes.length){
             try{
-                connection = DriverManager.getConnection(database, user, key);
+                this.connection = DriverManager.getConnection(database, user, key);
                 StringBuilder query = new StringBuilder();
                 query.append("update ");
                 query.append(database);
@@ -106,10 +106,10 @@ public class MySQLConnection {
                     }
                 
                 }
-                Statement statement = connection.createStatement();
-                statement.executeQuery(query.toString());
-                statement.close();
-                connection.close();
+                this.statement = connection.createStatement();
+                this.statement.executeQuery(query.toString());
+                this.statement.close();
+                this.connection.close();
             }
             catch(SQLException e){
                 showMessageDialog(null, "Couldn't connect to database" + this.database);
