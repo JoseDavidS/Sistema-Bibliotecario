@@ -49,19 +49,21 @@ public class MainWindowForm extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel3MouseExited(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Roboto", 2, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Books manager");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -170,6 +172,8 @@ public class MainWindowForm extends javax.swing.JPanel {
         jLabel1.getAccessibleContext().setAccessibleName("tittleLabel");
 
         containerPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 723, 130));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\Trabajos\\Sistema-Bibliotecario\\src\\main\\java\\com\\SIGLO21\\sistemabiblioteca\\media\\p2bkg.png")); // NOI18N
         containerPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 723, 578));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -183,14 +187,6 @@ public class MainWindowForm extends javax.swing.JPanel {
             .addComponent(containerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
-        this.jPanel3.setBackground(new java.awt.Color(102, 102, 102));
-    }//GEN-LAST:event_jPanel3MouseEntered
-
-    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
-        this.jPanel3.setBackground(new java.awt.Color(60,63,65));
-    }//GEN-LAST:event_jPanel3MouseExited
 
     private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
         this.jPanel4.setBackground(new java.awt.Color(102, 102, 102));
@@ -207,6 +203,18 @@ public class MainWindowForm extends javax.swing.JPanel {
     private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
         this.jPanel5.setBackground(new java.awt.Color(60,63,65));
     }//GEN-LAST:event_jPanel5MouseExited
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        this.jLabel1.setText("Presionado");
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+         this.jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        this.jPanel3.setBackground(new java.awt.Color(60,63,65));
+    }//GEN-LAST:event_jLabel5MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
